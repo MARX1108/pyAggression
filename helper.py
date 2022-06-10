@@ -8,7 +8,7 @@ base = importr('base')
 ROSE = importr('ROSE')
 
 
-def preprosessing(columns, seed=3, size=2000, original_file="aggr-all.csv", orginal=False):
+def preprosessing(columns, seed=3, size=2000, original_file="new-aggr-all-processed.csv", orginal=False):
     df = pd.read_csv(f"./data/{original_file}")
 
     for index, item in enumerate(columns):
@@ -27,8 +27,7 @@ def preprosessing(columns, seed=3, size=2000, original_file="aggr-all.csv", orgi
         ro.globalenv["df"] = r_from_pd_df
         ro.r(f'''
                 if('sex' %in% colnames(df))
-                df$sex <- ifelse(df$sex == "M" , 1, 0)
-            
+                df$sex <- as.factor(df$sex)
                 data.rose <- ROSE(y~., data=df, seed={seed},
                         N={size})$data
     ''')
