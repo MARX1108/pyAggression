@@ -1,4 +1,4 @@
-#!/Users/marxw/Desktop/andlab/pyAggression/venv/bin/python
+#!/Users/marxw/Desktop/andlab/pyAggression/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

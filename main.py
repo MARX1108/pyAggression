@@ -8,4 +8,4 @@ from helper import *
 
 col = ["family", "sex", "neighbor"]
 df = preprosessing(col)
-df
+print(df)
